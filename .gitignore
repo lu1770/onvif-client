@@ -1,0 +1,12 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/ONVIFDeviceTest/bin/Debug/netcoreapp3.1
+/ONVIFDeviceTest/obj
+/ONVIFWinFormClient/bin/Debug/netcoreapp3.1
+/ONVIFWinFormClient/bin/x86/Debug/netcoreapp3.1/Vlc
+/ONVIFWinFormClient/bin/x86/Debug/netcoreapp3.1
+/ONVIFWinFormClient/obj
+/ONVIFWinFormClient/ONVIFWinFormClient.csproj.user
