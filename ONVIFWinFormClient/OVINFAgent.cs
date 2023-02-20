@@ -148,32 +148,36 @@ namespace ONVIFWinFormClient
 
         public void ZoomIn()
         {
-            pTZClient.ContinuousMoveAsync(ProfileToken,
-                new ptz.PTZSpeed()
+            pTZClient.ContinuousMoveAsync(ProfileToken, GetZoomInSpeed(), Timeout);
+        }
+
+        private static PTZSpeed GetZoomInSpeed()
+        {
+            return new ptz.PTZSpeed()
+            {
+                Zoom = new ptz.Vector1D()
                 {
-                    Zoom = new ptz.Vector1D()
-                    {
-                        x = -1 * ZoomSpeed,
-                        space = ZoomSpace
-                    }
-                },
-                Timeout
-            );
+                    x = -1 * ZoomSpeed,
+                    space = ZoomSpace
+                }
+            };
         }
 
         public void ZoomOut()
         {
-            pTZClient.ContinuousMoveAsync(ProfileToken,
-                new ptz.PTZSpeed()
+            pTZClient.ContinuousMoveAsync(ProfileToken, GetZoomOutSpeed(), Timeout);
+        }
+
+        private static PTZSpeed GetZoomOutSpeed()
+        {
+            return new ptz.PTZSpeed()
+            {
+                Zoom = new ptz.Vector1D()
                 {
-                    Zoom = new ptz.Vector1D()
-                    {
-                        x = ZoomSpeed,
-                        space = ZoomSpace
-                    }
-                },
-                Timeout
-            );
+                    x = ZoomSpeed,
+                    space = ZoomSpace
+                }
+            };
         }
 
         public void Stop()
