@@ -20,14 +20,17 @@ namespace ONVIFWinFormClient
     {
         public string[] ConvertToChannels(Profile[] profiles)
         {
-            return profiles.Select(p => p.Name).ToArray();
+            return profiles?.Select(p => p.Name).ToArray();
         }
 
 
         public async Task LoadProfiles(string ipAddress, string userName, string password)
         {
+            Trace.Assert(!string.IsNullOrEmpty(ipAddress), "Ip address is not valid.");
+            Trace.Assert(!string.IsNullOrEmpty(userName), "User name is not valid.");
+            Trace.Assert(!string.IsNullOrEmpty(password), "Password is not valid.");
             var onvifUrl = GetOnvifUrl(ipAddress);
-            Debug.WriteLine($"OnvifUrl {onvifUrl}");
+            Trace.WriteLine($"OnvifUrl {onvifUrl}");
             OnvifUrl = onvifUrl;
             HttpTransportBindingElement httpTransport = new HttpTransportBindingElement();
             httpTransport.AuthenticationScheme = AuthenticationSchemes.Digest;
@@ -56,6 +59,7 @@ namespace ONVIFWinFormClient
 
         private static string GetOnvifUrl(string ipAddress)
         {
+            Trace.Assert(!string.IsNullOrEmpty(ipAddress), "Ip address is not valid.");
             var uri = $"http://{ipAddress}/onvif/device_service";
             var deviceUri = new UriBuilder(uri);
             string[] addr = ipAddress.Split(':');
@@ -148,7 +152,19 @@ namespace ONVIFWinFormClient
 
         public void ZoomIn()
         {
-            pTZClient.ContinuousMoveAsync(ProfileToken, GetZoomInSpeed(), Timeout);
+            Zoom(GetZoomInSpeed());
+        }
+
+        private void Zoom(PTZSpeed speed)
+        {
+            if (Async)
+            {
+                pTZClient.ContinuousMoveAsync(ProfileToken, speed, Timeout);
+            }
+            else
+            {
+                pTZClient.ContinuousMove(ProfileToken, speed, Timeout);
+            }
         }
 
         private static PTZSpeed GetZoomInSpeed()
@@ -158,14 +174,13 @@ namespace ONVIFWinFormClient
                 Zoom = new ptz.Vector1D()
                 {
                     x = -1 * ZoomSpeed,
-                    space = ZoomSpace
                 }
             };
         }
 
         public void ZoomOut()
         {
-            pTZClient.ContinuousMoveAsync(ProfileToken, GetZoomOutSpeed(), Timeout);
+            Zoom(GetZoomOutSpeed());
         }
 
         private static PTZSpeed GetZoomOutSpeed()
@@ -175,7 +190,7 @@ namespace ONVIFWinFormClient
                 Zoom = new ptz.Vector1D()
                 {
                     x = ZoomSpeed,
-                    space = ZoomSpace
+                    
                 }
             };
         }

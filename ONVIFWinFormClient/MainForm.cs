@@ -17,10 +17,11 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Vlc.DotNet.Core;
 using Vlc.DotNet.Forms;
 using static ONVIFWinFormClient.ClientOptions;
+using System.Data.Common;
 
 namespace ONVIFWinFormClient
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         private OVINFAgent Agent { get; set; } = new OVINFAgent();
 
@@ -33,31 +34,23 @@ namespace ONVIFWinFormClient
         private IntPtr m_LoginID = IntPtr.Zero;
 
         private IntPtr m_RealPlayID = IntPtr.Zero;
-        private uint m_SnapSerialNum = 1;
-        private bool m_IsInSave = false;
-        private int SpeedValue = 4;
         private const int MaxSpeed = 8;
         private const int MinSpeed = 1;
 
-        string vlcPath = ""; // System.IO.Path.Combine(System.IO.Path.GetFullPath(@"..\..\"), "Vlc");
         string onvifexPath = ""; // Properties.Resources.ONVIFEXPath;
 
-        int previousSavedConnIndex = -1;
         String path_to_connexion_file = AppDomain.CurrentDomain.BaseDirectory + @"\login_info.json";
 
-        //Media2Client media;
-        UriBuilder deviceUri;
 
         //MediaProfile[] profiles;
         String[] prms = { };
-        System.ServiceModel.Channels.Binding binding;
 
         #endregion
 
         DirectoryInfo dd;
         public ClientOptions ClientOptions { get; set; } = new ClientOptions();
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
             var currentAssembly = System.Reflection.Assembly.GetEntryAssembly();
@@ -97,8 +90,14 @@ namespace ONVIFWinFormClient
             }
             catch (Exception exception)
             {
-                textBox.Text = exception.Message;
+                ResolveException(exception);
             }
+        }
+
+        private void ResolveException(Exception exception)
+        {
+            textBox.Text = exception.Message;
+            Debug.WriteLine($"Error: {exception.Message} {exception.StackTrace}");
         }
 
         private string clientoptionsJson = "ClientOptions.json";
@@ -190,9 +189,10 @@ namespace ONVIFWinFormClient
             {
                 InitOrLogoutUI();
             }
-            catch (Exception ex)
+            catch (Exception exception)
             {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
+                ResolveException(exception);
+                System.Windows.Forms.MessageBox.Show(exception.Message);
                 Process.GetCurrentProcess().Kill();
             }
         }
@@ -218,7 +218,7 @@ namespace ONVIFWinFormClient
             }
             catch (Exception exception)
             {
-                textBox.Text = exception.Message;
+                ResolveException(exception);
             }
         }
 
@@ -246,9 +246,9 @@ namespace ONVIFWinFormClient
                 {
                     StreamVideoOnVLC(prms);
                 }
-                catch (Exception ex)
+                catch (Exception exception)
                 {
-                    textBox.Text = ex.Message;
+                    ResolveException(exception);
                     inError = true;
                 }
             }
@@ -497,7 +497,7 @@ namespace ONVIFWinFormClient
             }
             catch (Exception exception)
             {
-                textBox.Text = exception.Message;
+                ResolveException(exception);
             }
         }
 
@@ -527,13 +527,12 @@ namespace ONVIFWinFormClient
             }
             catch (Exception exception)
             {
-                textBox.Text = exception.Message;
+                ResolveException(exception);
             }
         }
 
         private void step_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
     }
 }
