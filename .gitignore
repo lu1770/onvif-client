@@ -1,4 +1,4 @@
-﻿################################################################################
+################################################################################
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
@@ -10,3 +10,5 @@
 /ONVIFWinFormClient/bin/x86/Debug/netcoreapp3.1
 /ONVIFWinFormClient/obj
 /ONVIFWinFormClient/ONVIFWinFormClient.csproj.user
+*/obj/*
+*/bin/*

@@ -9,71 +9,39 @@ using System.Threading.Tasks;
 using System.Timers;
 using devicemgmt;
 using media;
+using Onvif.DeviceManagement;
+using Onvif.Media;
 using ptz;
 using PTZConfiguration = ptz.PTZConfiguration;
 using PTZSpeed = ptz.PTZSpeed;
 using Vector2D = ptz.Vector2D;
 
-namespace ONVIFWinFormClient
+namespace Onvif.PTZ
 {
-    public class OVINFAgent
+    public class PtzAgent
     {
-        public string[] ConvertToChannels(Profile[] profiles)
+        public DeviceAgent Device { get; set; }
+
+        public PtzAgent(DeviceAgent device)
         {
-            return profiles?.Select(p => p.Name).ToArray();
+            Device = device;
+            LoadProfiles(device);
         }
 
-
-        public async Task LoadProfiles(string ipAddress, string userName, string password)
+        public Task LoadProfiles(DeviceAgent device)
         {
-            Trace.Assert(!string.IsNullOrEmpty(ipAddress), "Ip address is not valid.");
-            Trace.Assert(!string.IsNullOrEmpty(userName), "User name is not valid.");
-            Trace.Assert(!string.IsNullOrEmpty(password), "Password is not valid.");
-            var onvifUrl = GetOnvifUrl(ipAddress);
-            Trace.WriteLine($"OnvifUrl {onvifUrl}");
-            OnvifUrl = onvifUrl;
-            HttpTransportBindingElement httpTransport = new HttpTransportBindingElement();
-            httpTransport.AuthenticationScheme = AuthenticationSchemes.Digest;
-            var binding =
-                new CustomBinding(
-                    new TextMessageEncodingBindingElement(MessageVersion.Soap12WSAddressing10, Encoding.UTF8),
-                    httpTransport);
-            DeviceClient device = new DeviceClient(binding, new EndpointAddress(onvifUrl));
-            Service[] services = device.GetServices(false);
-            Service xmedia2 =
-                services.FirstOrDefault(s =>
-                    s.Namespace == "http://www.onvif.org/ver10/media/wsdl"); //ver20改成ver10兼容性强
-            this.Media = new MediaClient(binding, new EndpointAddress(xmedia2.XAddr));
-            var digest = Media.ClientCredentials.HttpDigest;
-            digest.ClientCredential = new NetworkCredential(userName, password);
-            Profiles = Media.GetProfiles();
-            pTZClient = new PTZClient(binding, new EndpointAddress(onvifUrl));
-            pTZClient.ClientCredentials.HttpDigest.ClientCredential =
-                new NetworkCredential(userName, password);
-            await pTZClient.OpenAsync();
-            ProfileToken = Profiles[1].token;
+            var mediaAgent = new MediaAgent(device);
+            ProfileToken = mediaAgent.GetToken();
+            pTZClient = new PTZClient(device.GetBinding(), new EndpointAddress(device.GetXmedia2XAddr()));
+            pTZClient.ClientCredentials.HttpDigest.ClientCredential = device.Credential;
+            return pTZClient.OpenAsync();
+        }
+
+        private void GotoHomePosition()
+        {
             pTZClient.GotoHomePosition(ProfileToken, new PTZSpeed() { PanTilt = new Vector2D() { x = 0, y = 0 } });
         }
 
-        public MediaClient Media { get; set; }
-
-        private static string GetOnvifUrl(string ipAddress)
-        {
-            Trace.Assert(!string.IsNullOrEmpty(ipAddress), "Ip address is not valid.");
-            var uri = $"http://{ipAddress}/onvif/device_service";
-            var deviceUri = new UriBuilder(uri);
-            string[] addr = ipAddress.Split(':');
-            deviceUri.Host = addr[0];
-            if (addr.Length == 2)
-            {
-                deviceUri.Port = Convert.ToInt16(addr[1]);
-            }
-
-            var onvifUrl = deviceUri.ToString();
-            return onvifUrl;
-        }
-
-        public Profile[] Profiles { get; set; }
 
         public string OnvifUrl { get; set; }
 
@@ -98,7 +66,7 @@ namespace ONVIFWinFormClient
 
         private static PTZSpeed GetDirectionSpeed(Vector2D direction)
         {
-            return new ptz.PTZSpeed()
+            return new PTZSpeed()
             {
                 PanTilt = direction
             };
@@ -169,7 +137,7 @@ namespace ONVIFWinFormClient
 
         private static PTZSpeed GetZoomInSpeed()
         {
-            return new ptz.PTZSpeed()
+            return new PTZSpeed()
             {
                 Zoom = new ptz.Vector1D()
                 {
@@ -185,12 +153,11 @@ namespace ONVIFWinFormClient
 
         private static PTZSpeed GetZoomOutSpeed()
         {
-            return new ptz.PTZSpeed()
+            return new PTZSpeed()
             {
                 Zoom = new ptz.Vector1D()
                 {
                     x = ZoomSpeed,
-                    
                 }
             };
         }

@@ -5,6 +5,14 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ONVIFWinFormClient", "ONVIFWinFormClient\ONVIFWinFormClient.csproj", "{12EECD9F-5177-4B87-A903-31CA97A96BFC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Onvif.PTZ", "Onvif.PTZ\Onvif.PTZ.csproj", "{45CDB222-474B-4F45-B353-E93794805F95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Onvif.DeviceManagement", "Onvif.DeviceManagement\Onvif.DeviceManagement.csproj", "{93A203D1-F0DE-49FA-8693-17A49504A1B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Onvif.Media", "Onvif.Media\Onvif.Media.csproj", "{DFF2E055-0A50-4C76-B2D3-38019398945B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Onvif", "Onvif\Onvif.csproj", "{6271AA7D-9F92-4DF5-A071-32B4D5FA4F19}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +29,38 @@ Global
 		{12EECD9F-5177-4B87-A903-31CA97A96BFC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{12EECD9F-5177-4B87-A903-31CA97A96BFC}.Release|x86.ActiveCfg = Release|x86
 		{12EECD9F-5177-4B87-A903-31CA97A96BFC}.Release|x86.Build.0 = Release|x86
+		{45CDB222-474B-4F45-B353-E93794805F95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45CDB222-474B-4F45-B353-E93794805F95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45CDB222-474B-4F45-B353-E93794805F95}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{45CDB222-474B-4F45-B353-E93794805F95}.Debug|x86.Build.0 = Debug|Any CPU
+		{45CDB222-474B-4F45-B353-E93794805F95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45CDB222-474B-4F45-B353-E93794805F95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45CDB222-474B-4F45-B353-E93794805F95}.Release|x86.ActiveCfg = Release|Any CPU
+		{45CDB222-474B-4F45-B353-E93794805F95}.Release|x86.Build.0 = Release|Any CPU
+		{93A203D1-F0DE-49FA-8693-17A49504A1B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93A203D1-F0DE-49FA-8693-17A49504A1B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93A203D1-F0DE-49FA-8693-17A49504A1B7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{93A203D1-F0DE-49FA-8693-17A49504A1B7}.Debug|x86.Build.0 = Debug|Any CPU
+		{93A203D1-F0DE-49FA-8693-17A49504A1B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93A203D1-F0DE-49FA-8693-17A49504A1B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93A203D1-F0DE-49FA-8693-17A49504A1B7}.Release|x86.ActiveCfg = Release|Any CPU
+		{93A203D1-F0DE-49FA-8693-17A49504A1B7}.Release|x86.Build.0 = Release|Any CPU
+		{DFF2E055-0A50-4C76-B2D3-38019398945B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFF2E055-0A50-4C76-B2D3-38019398945B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFF2E055-0A50-4C76-B2D3-38019398945B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DFF2E055-0A50-4C76-B2D3-38019398945B}.Debug|x86.Build.0 = Debug|Any CPU
+		{DFF2E055-0A50-4C76-B2D3-38019398945B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFF2E055-0A50-4C76-B2D3-38019398945B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFF2E055-0A50-4C76-B2D3-38019398945B}.Release|x86.ActiveCfg = Release|Any CPU
+		{DFF2E055-0A50-4C76-B2D3-38019398945B}.Release|x86.Build.0 = Release|Any CPU
+		{6271AA7D-9F92-4DF5-A071-32B4D5FA4F19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6271AA7D-9F92-4DF5-A071-32B4D5FA4F19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6271AA7D-9F92-4DF5-A071-32B4D5FA4F19}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6271AA7D-9F92-4DF5-A071-32B4D5FA4F19}.Debug|x86.Build.0 = Debug|Any CPU
+		{6271AA7D-9F92-4DF5-A071-32B4D5FA4F19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6271AA7D-9F92-4DF5-A071-32B4D5FA4F19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6271AA7D-9F92-4DF5-A071-32B4D5FA4F19}.Release|x86.ActiveCfg = Release|Any CPU
+		{6271AA7D-9F92-4DF5-A071-32B4D5FA4F19}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -19,6 +19,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Onvif.PTZ\Onvif.PTZ.csproj" />
+    <ProjectReference Include="..\Onvif\Onvif.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="dict.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

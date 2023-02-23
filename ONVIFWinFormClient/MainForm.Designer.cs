@@ -642,14 +642,14 @@ namespace ONVIFWinFormClient
             this.btnDiscover.UseVisualStyleBackColor = true;
             this.btnDiscover.Click += new System.EventHandler(this.btnDiscover_Click);
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1440, 639);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "ONVIF Client";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OnClosed);
             this.Load += new System.EventHandler(this.Form1_Load);

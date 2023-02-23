@@ -18,12 +18,16 @@ using Vlc.DotNet.Core;
 using Vlc.DotNet.Forms;
 using static ONVIFWinFormClient.ClientOptions;
 using System.Data.Common;
+using Onvif;
+using Onvif.DeviceManagement;
+using Onvif.Media;
+using Onvif.PTZ;
 
 namespace ONVIFWinFormClient
 {
     public partial class MainForm : Form
     {
-        private OVINFAgent Agent { get; set; } = new OVINFAgent();
+        private OnvifAgent Agent { get; set; }
 
         #region Field 字段
 
@@ -239,7 +243,7 @@ namespace ONVIFWinFormClient
 
         private void OnSelectionChanged(object sender, EventArgs e)
         {
-            if (Agent.Profiles != null && lbChannels.SelectedIndex >= 0)
+            if (Agent != null && lbChannels.SelectedIndex >= 0)
             {
                 bool inError = false;
                 try
@@ -259,7 +263,7 @@ namespace ONVIFWinFormClient
 
         private void right_button_MouseUp(object sender, MouseEventArgs e)
         {
-            Agent.MoveRight();
+            Agent.Ptz.MoveRight();
         }
 
         #endregion
@@ -292,58 +296,7 @@ namespace ONVIFWinFormClient
 
         private void StreamVideoOnVLC(String[] recordParams)
         {
-            //UriBuilder uri = new UriBuilder(media.GetStreamUri("RtspOverHttp", profiles[listBox.SelectedIndex].token));
-
-            StreamSetup streamSetup = new StreamSetup();
-            streamSetup.Stream = StreamType.RTPUnicast; //"RTP-Unicast";
-            streamSetup.Transport = new Transport();
-            streamSetup.Transport.Protocol = TransportProtocol.UDP; //"UDP";
-
-            // RTP/RTSP/UDP is not a special tunnelling setup (is not requiring)!
-            //streamSetup.Transport.Tunnel = null;
-            string mtoken = Agent.Profiles[lbChannels.SelectedIndex].token;
-
-
-            MediaUri murl = Agent.Media.GetStreamUri(streamSetup, mtoken);
-            //murl.Uri = murl.Uri.Replace("_", "&");
-            string[] addr = murl.Uri.Split(':');
-
-            if (addr.Length == 3)
-            {
-                // deviceUri.Port = Convert.ToInt16(addr[2]);
-            }
-
-            UriBuilder uri = new UriBuilder(murl.Uri);
-
-
-            // uri.Host = deviceUri.Host;
-            // uri.Port = deviceUri.Port;
-            uri.Scheme = "rtsp";
-
-            textBox.Text = uri.Path;
-
-            List<string> options = new List<string>();
-            options.Add(":rtsp-http");
-            options.Add(":rtsp-http-port=" + uri.Port);
-            options.Add(":rtsp-user=" + name_textBox.Text);
-            options.Add(":rtsp-pwd=" + pwd_textBox.Text);
-            options.Add(":network-caching=1000");
-            this.textBox2.Text = "ppp=" + uri.Port;
-            if (recordParams.Length != 0)
-            {
-                foreach (string param in recordParams)
-                {
-                    options.Add(param);
-                    Debug.WriteLine(param);
-                }
-            }
-
-            //
-            //Uri uri2 = new Uri("rtsp://10.1.20.81:554/Streaming/Channels/101?transportmode=unicast&amp;profile=Profile_1");
-            //Uri uri2 = new Uri("rtsp://10.1.20.80:554/cam/realmonitor?channel=1&amp;subtype=0&amp;unicast=true&amp;proto=Onvif");
-            //vlcControl1.Play(uri2, options.ToArray());
-            uri.UserName = name_textBox.Text;
-            uri.Password = pwd_textBox.Text;
+            var uri = Agent.Media.GetRtspUri(recordParams);
             Debug.Write(uri.Uri);
             // vlcControl1.VlcMediaPlayer.Play(uri.Uri, options.ToArray());
             //vlcControl1.Play(uri2);
@@ -360,7 +313,7 @@ namespace ONVIFWinFormClient
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Agent.Stop();
+            Agent.Ptz.Stop();
         }
 
 
@@ -456,37 +409,49 @@ namespace ONVIFWinFormClient
 
         private void up_MouseDown(object sender, MouseEventArgs e)
         {
-            Agent.MoveUp();
+            Catch(Agent.Ptz.MoveUp);
+        }
+
+        public void Catch(Action action)
+        {
+            try
+            {
+                action();
+            }
+            catch (Exception e)
+            {
+                ResolveException(e);
+            }
         }
 
         private void StopAsync(object sender, MouseEventArgs e)
         {
-            Agent.Stop();
+            Catch(Agent.Ptz.Stop);
         }
 
         private void left_MouseDown(object sender, MouseEventArgs e)
         {
-            Agent.MoveLeft();
+            Catch(Agent.Ptz.MoveLeft);
         }
 
         private void right_MouseDown(object sender, MouseEventArgs e)
         {
-            Agent.MoveRight();
+            Catch(Agent.Ptz.MoveRight);
         }
 
         private void down_MouseDown(object sender, MouseEventArgs e)
         {
-            Agent.MoveDown();
+            Catch(Agent.Ptz.MoveDown);
         }
 
         private void btnZoomIn_MouseDown(object sender, MouseEventArgs e)
         {
-            Agent.ZoomIn();
+            Catch(Agent.Ptz.ZoomIn);
         }
 
         private void btnZoomOut_MouseDown(object sender, MouseEventArgs e)
         {
-            Agent.ZoomOut();
+            Catch(Agent.Ptz.ZoomOut);
         }
 
         private async Task LoadProfile()
@@ -506,9 +471,8 @@ namespace ONVIFWinFormClient
             var ipAddress = ip_textBox.Text;
             var userName = name_textBox.Text;
             var password = pwd_textBox.Text;
-
-            await LoadProfiles(ipAddress, userName, password);
-            var channels = Agent.ConvertToChannels(Agent.Profiles);
+            Agent = new OnvifAgent(ipAddress, userName, password);
+            var channels = Agent.Media.GetChannels();
             UpdateChannels(channels);
             this.ClientOptions.Accounts[ipAddress] = new Account
             {
@@ -517,18 +481,6 @@ namespace ONVIFWinFormClient
                 Password = password
             };
             SaveClientOptions();
-        }
-
-        private async Task LoadProfiles(string ipAddress, string userName, string password)
-        {
-            try
-            {
-                await Agent.LoadProfiles(ipAddress, userName, password);
-            }
-            catch (Exception exception)
-            {
-                ResolveException(exception);
-            }
         }
 
         private void step_comboBox_SelectedIndexChanged(object sender, EventArgs e)
