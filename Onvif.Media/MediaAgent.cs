@@ -11,7 +11,7 @@ using Onvif.DeviceManagement;
 
 namespace Onvif.Media
 {
-    public class MediaAgent
+    public class MediaAgent : IDisposable
     {
         public DeviceAgent Device { get; set; }
 
@@ -34,7 +34,7 @@ namespace Onvif.Media
         private void Load()
         {
             var customBinding = Device.GetBinding();
-            this.Media = new MediaClient(customBinding,
+            Media = new MediaClient(customBinding,
                 new EndpointAddress(Device.GetXmedia2XAddr()));
             var digest = Media.ClientCredentials.HttpDigest;
             digest.ClientCredential = Device.Credential;
@@ -101,7 +101,15 @@ namespace Onvif.Media
 
         public string[] GetChannels()
         {
-            return ConvertToChannels(this.GetProfiles());
+            return ConvertToChannels(GetProfiles());
+        }
+
+        public void Dispose()
+        {
+            Media.Close();
+            ((IDisposable)Media)?.Dispose();
+            Device = null;
+            Media = null;
         }
     }
 }

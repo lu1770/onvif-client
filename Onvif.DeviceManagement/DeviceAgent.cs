@@ -12,7 +12,7 @@ using Newtonsoft.Json;
 
 namespace Onvif.DeviceManagement
 {
-    public class DeviceAgent
+    public class DeviceAgent:IDisposable
     {
         public DeviceAgent(string ipAddress, string userName, string password)
         {
@@ -73,5 +73,14 @@ namespace Onvif.DeviceManagement
         }
 
         public string OnvifUrl { get; set; }
+
+        public void Dispose()
+        {
+            Device.Close();
+            ((IDisposable)Device)?.Dispose();
+            Device = null;
+            Credential = null;
+            XAddrDictionary = null;
+        }
     }
 }

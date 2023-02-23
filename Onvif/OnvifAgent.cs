@@ -6,7 +6,7 @@ using Onvif.PTZ;
 
 namespace Onvif
 {
-    public class OnvifAgent
+    public class OnvifAgent : IDisposable
     {
         public PtzAgent Ptz { get; set; }
         public MediaAgent Media { get; set; }
@@ -27,6 +27,13 @@ namespace Onvif
             Device = device;
             Media = new MediaAgent(device);
             Ptz = new PtzAgent(device);
+        }
+
+        public void Dispose()
+        {
+            Ptz?.Dispose();
+            Media?.Dispose();
+            Device?.Dispose();
         }
     }
 }

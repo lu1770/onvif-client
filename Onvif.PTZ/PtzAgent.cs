@@ -18,7 +18,7 @@ using Vector2D = ptz.Vector2D;
 
 namespace Onvif.PTZ
 {
-    public class PtzAgent
+    public class PtzAgent:IDisposable
     {
         public DeviceAgent Device { get; set; }
 
@@ -174,6 +174,12 @@ namespace Onvif.PTZ
             pTZClient.Stop(ProfileToken, true, true);
             timer.Stop();
             Debug.WriteLine($"timer.Interval {timer.Interval}");
+        }
+
+        public void Dispose()
+        {
+            pTZClient.Close();
+            ((IDisposable)pTZClient)?.Dispose();
         }
     }
 }
