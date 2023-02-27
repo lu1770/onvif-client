@@ -24,6 +24,29 @@ Agent = new OnvifAgent(ipAddress, userName, password)
 var channels = Agent.Media.GetChannels();
 Agent.Ptz.MoveUp();
 Agent.Ptz.Stop();
+
+// 上移
+Agent.Ptz.MoveUp();
+Thread.Sleep(1000);
+Agent.Ptz.Stop();
+
+// 下移
+Agent.Ptz.MoveDown();
+Thread.Sleep(1000);
+Agent.Ptz.Stop();
+
+// 左移
+Agent.Ptz.MoveLeft();
+Thread.Sleep(1000);
+Agent.Ptz.Stop();
+
+// 右移
+Agent.Ptz.MoveLeft();
+Thread.Sleep(1000);
+Agent.Ptz.Stop();
+
+// 复位
+Agent.Ptz.GotoHomePosition();
 ```
 
 #### 参与贡献

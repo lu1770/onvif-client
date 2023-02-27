@@ -11,10 +11,16 @@
 		<RepositoryType>git</RepositoryType>
 		<PackageReleaseNotes>1. Add dispose function.</PackageReleaseNotes>
 		<IncludeSymbols>False</IncludeSymbols>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<PackageProjectUrl>https://github.com/lu1770/onvif-client</PackageProjectUrl>
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="Onvif.PTZ" Version="1.0.2" />
+		<None Include="README.md" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Onvif.PTZ" Version="1.0.2" />
 	</ItemGroup>
 
 </Project>
