@@ -1,19 +1,26 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Version>1.0.2</Version>
+		<Authors>Lu1770</Authors>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<Title>Onvif.PTZ</Title>
+		<RepositoryUrl>https://github.com/lu1770/onvif-client</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageReleaseNotes>1. Add dispose function.</PackageReleaseNotes>
+		<IncludeSymbols>False</IncludeSymbols>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="System.ServiceModel.Duplex" Version="4.7.*" />
-    <PackageReference Include="System.ServiceModel.Http" Version="4.7.*" />
-    <PackageReference Include="System.ServiceModel.NetTcp" Version="4.7.*" />
-    <PackageReference Include="System.ServiceModel.Security" Version="4.7.*" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Onvif.DeviceManagement\Onvif.DeviceManagement.csproj" />
-    <ProjectReference Include="..\Onvif.Media\Onvif.Media.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Onvif.DeviceManagement" Version="1.0.2" />
+		<PackageReference Include="Onvif.Media" Version="1.0.2" />
+		<PackageReference Include="System.ServiceModel.Duplex" Version="4.10.0" />
+		<PackageReference Include="System.ServiceModel.Http" Version="4.10.0" />
+		<PackageReference Include="System.ServiceModel.NetTcp" Version="4.10.0" />
+		<PackageReference Include="System.ServiceModel.Security" Version="4.10.0" />
+	</ItemGroup>
 
 </Project>

@@ -486,5 +486,10 @@ namespace ONVIFWinFormClient
         private void step_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
         }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            Catch(Agent.Ptz.GotoHomePosition);
+        }
     }
 }

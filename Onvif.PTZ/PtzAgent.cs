@@ -18,7 +18,7 @@ using Vector2D = ptz.Vector2D;
 
 namespace Onvif.PTZ
 {
-    public class PtzAgent:IDisposable
+    public class PtzAgent : IDisposable
     {
         public DeviceAgent Device { get; set; }
 
@@ -28,18 +28,17 @@ namespace Onvif.PTZ
             LoadProfiles(device);
         }
 
-        public Task LoadProfiles(DeviceAgent device)
+        public void LoadProfiles(DeviceAgent device)
         {
             var mediaAgent = new MediaAgent(device);
             ProfileToken = mediaAgent.GetToken();
-            pTZClient = new PTZClient(device.GetBinding(), new EndpointAddress(device.GetXmedia2XAddr()));
-            pTZClient.ClientCredentials.HttpDigest.ClientCredential = device.Credential;
-            return pTZClient.OpenAsync();
+            PtzClient = new PTZClient(device.GetBinding(), new EndpointAddress(device.GetXmedia2XAddr()));
+            PtzClient.ClientCredentials.HttpDigest.ClientCredential = device.Credential;
         }
 
-        private void GotoHomePosition()
+        public void GotoHomePosition()
         {
-            pTZClient.GotoHomePosition(ProfileToken, new PTZSpeed() { PanTilt = new Vector2D() { x = 0, y = 0 } });
+            PtzClient.GotoHomePosition(ProfileToken, new PTZSpeed() { PanTilt = new Vector2D() { x = 0, y = 0 } });
         }
 
 
@@ -55,13 +54,13 @@ namespace Onvif.PTZ
         private static Vector2D DirectionUp = new Vector2D() { x = 0, y = -1 * RedirectionSpeed };
         private static Vector2D DirectionDown = new Vector2D() { x = 0, y = RedirectionSpeed };
 
-        private PTZClient pTZClient;
-        private string ProfileToken;
+        private PTZClient PtzClient { get; set; }
+        private string ProfileToken { get; set; }
         private string Timeout = "-1";
 
         public Task<ContinuousMoveResponse> ContinuousMoveAsync(Vector2D direction)
         {
-            return pTZClient.ContinuousMoveAsync(ProfileToken, GetDirectionSpeed(direction), Timeout);
+            return PtzClient.ContinuousMoveAsync(ProfileToken, GetDirectionSpeed(direction), Timeout);
         }
 
         private static PTZSpeed GetDirectionSpeed(Vector2D direction)
@@ -74,14 +73,14 @@ namespace Onvif.PTZ
 
         public void ContinuousMove(Vector2D direction)
         {
-            if (pTZClient.State == CommunicationState.Opening)
+            if (PtzClient.State == CommunicationState.Opening)
             {
                 return;
             }
 
             var timer = new Timer();
             timer.Start();
-            pTZClient.ContinuousMove(ProfileToken, GetDirectionSpeed(direction), Timeout);
+            PtzClient.ContinuousMove(ProfileToken, GetDirectionSpeed(direction), Timeout);
             timer.Stop();
             Debug.WriteLine($"timer.Interval {timer.Interval}");
         }
@@ -127,11 +126,11 @@ namespace Onvif.PTZ
         {
             if (Async)
             {
-                pTZClient.ContinuousMoveAsync(ProfileToken, speed, Timeout);
+                PtzClient.ContinuousMoveAsync(ProfileToken, speed, Timeout);
             }
             else
             {
-                pTZClient.ContinuousMove(ProfileToken, speed, Timeout);
+                PtzClient.ContinuousMove(ProfileToken, speed, Timeout);
             }
         }
 
@@ -164,22 +163,22 @@ namespace Onvif.PTZ
 
         public void Stop()
         {
-            if (pTZClient.State == CommunicationState.Opening)
+            if (PtzClient.State == CommunicationState.Opening)
             {
                 return;
             }
 
             var timer = new Timer();
             timer.Start();
-            pTZClient.Stop(ProfileToken, true, true);
+            PtzClient.Stop(ProfileToken, true, true);
             timer.Stop();
             Debug.WriteLine($"timer.Interval {timer.Interval}");
         }
 
         public void Dispose()
         {
-            pTZClient.Close();
-            ((IDisposable)pTZClient)?.Dispose();
+            PtzClient.Close();
+            ((IDisposable)PtzClient)?.Dispose();
         }
     }
 }
