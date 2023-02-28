@@ -34,5 +34,4 @@ dotnet pack -c Release
 cd bin\Release
 dotnet nuget push *.nupkg -k %NUGET_API_KEY% -s https://api.nuget.org/v3/index.json --skip-duplicate
 cd ..\..\..
-
-
+pause
