@@ -1,8 +1,8 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>netcoreapp3.1</TargetFramework>
-		<Version>1.0.2</Version>
+		<Version>1.0.3</Version>
 		<Authors>Lu1770</Authors>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
@@ -19,6 +19,12 @@
 		<PackageReference Include="System.ServiceModel.Http" Version="4.10.0" />
 		<PackageReference Include="System.ServiceModel.NetTcp" Version="4.10.0" />
 		<PackageReference Include="System.ServiceModel.Security" Version="4.10.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Pack="true" PackagePath="" Update="README.md">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
 	</ItemGroup>
 
 </Project>

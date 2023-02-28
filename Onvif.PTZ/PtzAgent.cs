@@ -35,7 +35,6 @@ namespace Onvif.PTZ
             PtzClient = new PTZClient(device.GetBinding(), new EndpointAddress(device.GetXmedia2XAddr()));
             PtzClient.ClientCredentials.HttpDigest.ClientCredential = device.Credential;
         }
-
         public void GotoHomePosition()
         {
             PtzClient.GotoHomePosition(ProfileToken, new PTZSpeed() { PanTilt = new Vector2D() { x = 0, y = 0 } });
@@ -58,11 +57,17 @@ namespace Onvif.PTZ
         private string ProfileToken { get; set; }
         private string Timeout = "-1";
 
+        /// <summary>
+        /// Continuous move in the specified direction
+        /// </summary>
         public Task<ContinuousMoveResponse> ContinuousMoveAsync(Vector2D direction)
         {
             return PtzClient.ContinuousMoveAsync(ProfileToken, GetDirectionSpeed(direction), Timeout);
         }
 
+        /// <summary>
+        /// Get the speed for the specified direction
+        /// </summary>
         private static PTZSpeed GetDirectionSpeed(Vector2D direction)
         {
             return new PTZSpeed()
@@ -71,6 +76,10 @@ namespace Onvif.PTZ
             };
         }
 
+
+        /// <summary>
+        /// Continuous move in the specified direction
+        /// </summary>
         public void ContinuousMove(Vector2D direction)
         {
             if (PtzClient.State == CommunicationState.Opening)
@@ -167,12 +176,7 @@ namespace Onvif.PTZ
             {
                 return;
             }
-
-            var timer = new Timer();
-            timer.Start();
             PtzClient.Stop(ProfileToken, true, true);
-            timer.Stop();
-            Debug.WriteLine($"timer.Interval {timer.Interval}");
         }
 
         public void Dispose()

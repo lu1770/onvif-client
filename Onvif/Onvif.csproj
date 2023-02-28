@@ -1,26 +1,26 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>netcoreapp3.1</TargetFramework>
-		<Version>1.0.2</Version>
+		<Version>1.0.7</Version>
 		<Authors>Lu1770</Authors>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<Title>Onvif.DeviceManagement</Title>
 		<RepositoryUrl>https://github.com/lu1770/onvif-client</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
-		<PackageReleaseNotes>1. Add dispose function.</PackageReleaseNotes>
 		<IncludeSymbols>False</IncludeSymbols>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<PackageProjectUrl>https://github.com/lu1770/onvif-client</PackageProjectUrl>
 	</PropertyGroup>
-
 	<ItemGroup>
-		<None Include="README.md" />
+		<None Include="README.md" Pack="true" PackagePath="">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
 	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Onvif.PTZ" Version="1.0.2" />
 	</ItemGroup>
-
+	
 </Project>

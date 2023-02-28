@@ -12,3 +12,5 @@
 /ONVIFWinFormClient/ONVIFWinFormClient.csproj.user
 */obj/*
 */bin/*
+
+.fake

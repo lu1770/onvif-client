@@ -12,7 +12,7 @@ using Newtonsoft.Json;
 
 namespace Onvif.DeviceManagement
 {
-    public class DeviceAgent:IDisposable
+    public class DeviceAgent : IDisposable
     {
         public DeviceAgent(string ipAddress, string userName, string password)
         {
@@ -21,7 +21,10 @@ namespace Onvif.DeviceManagement
 
         public static string GetOnvifUrl(string ipAddress)
         {
-            Trace.Assert(!string.IsNullOrEmpty(ipAddress), "Ip address is not valid.");
+            if (string.IsNullOrEmpty(ipAddress))
+            {
+                throw new ArgumentNullException(nameof(ipAddress));
+            }
             var uri = $"http://{ipAddress}/onvif/device_service";
             var deviceUri = new UriBuilder(uri);
             string[] addr = ipAddress.Split(':');
@@ -37,9 +40,19 @@ namespace Onvif.DeviceManagement
 
         private void LoadProfiles(string ipAddress, string userName, string password)
         {
-            Trace.Assert(!string.IsNullOrEmpty(ipAddress), "Ip address is not valid.");
-            Trace.Assert(!string.IsNullOrEmpty(userName), "User name is not valid.");
-            Trace.Assert(!string.IsNullOrEmpty(password), "Password is not valid.");
+            if (string.IsNullOrEmpty(ipAddress))
+            {
+                throw new ArgumentNullException(nameof(ipAddress));
+            }
+            if (string.IsNullOrEmpty(userName))
+            {
+                throw new ArgumentNullException(nameof(userName));
+            }
+            if (string.IsNullOrEmpty(password))
+            {
+                throw new ArgumentNullException(nameof(password));
+            }
+
             OnvifUrl = GetOnvifUrl(ipAddress);
             Trace.WriteLine($"OnvifUrl {OnvifUrl}");
             DeviceClient device = new DeviceClient(GetBinding(), new EndpointAddress(OnvifUrl));
@@ -52,6 +65,14 @@ namespace Onvif.DeviceManagement
 
         public string GetXmedia2XAddr()
         {
+            if (XAddrDictionary == null)
+            {
+                throw new ArgumentNullException(nameof(XAddrDictionary));
+            }
+            if (!XAddrDictionary.ContainsKey(XAddrNamespace.Ver10.MEDIA))
+            {
+                throw new KeyNotFoundException($"Key {XAddrNamespace.Ver10.MEDIA} not found");
+            }
             return XAddrDictionary[XAddrNamespace.Ver10.MEDIA];
         }
 
@@ -60,7 +81,10 @@ namespace Onvif.DeviceManagement
         public DeviceClient Device { get; set; }
 
         public NetworkCredential Credential { get; set; }
-
+        /// <summary>
+        /// Get Binding
+        /// </summary>
+        /// <returns></returns>
         public CustomBinding GetBinding()
         {
             HttpTransportBindingElement httpTransport = new HttpTransportBindingElement();
@@ -71,7 +95,9 @@ namespace Onvif.DeviceManagement
                     httpTransport);
             return binding;
         }
-
+        /// <summary>
+        /// OnvifUrl
+        /// </summary>
         public string OnvifUrl { get; set; }
 
         public void Dispose()
