@@ -1,4 +1,11 @@
 @echo %NUGET_API_KEY%
+@REM echo required environment variables %NUGET_API_KEY% when %NUGET_API_KEY% is not set
+if ""==%NUGET_API_KEY% (
+    echo required environment variables %NUGET_API_KEY% when %NUGET_API_KEY% is not set
+    exit /b 1
+)
+
+
 @REM Clean up solution
 dotnet clean -c Release
 @rem build solution file
