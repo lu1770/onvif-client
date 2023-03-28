@@ -85,19 +85,19 @@ namespace ONVIFWinFormClient
             // textBox3
             // 
             textBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            textBox3.Location = new System.Drawing.Point(354, 593);
-            textBox3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            textBox3.Location = new System.Drawing.Point(161, 675);
+            textBox3.Margin = new System.Windows.Forms.Padding(4);
             textBox3.Name = "textBox3";
-            textBox3.Size = new System.Drawing.Size(918, 23);
+            textBox3.Size = new System.Drawing.Size(920, 23);
             textBox3.TabIndex = 5;
             // 
             // textBox2
             // 
             textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            textBox2.Location = new System.Drawing.Point(354, 557);
-            textBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            textBox2.Location = new System.Drawing.Point(161, 634);
+            textBox2.Margin = new System.Windows.Forms.Padding(4);
             textBox2.Name = "textBox2";
-            textBox2.Size = new System.Drawing.Size(918, 23);
+            textBox2.Size = new System.Drawing.Size(920, 23);
             textBox2.TabIndex = 4;
             // 
             // tableLayoutPanel3
@@ -108,13 +108,13 @@ namespace ONVIFWinFormClient
             tableLayoutPanel3.Controls.Add(groupBox2, 1, 0);
             tableLayoutPanel3.Controls.Add(plPlayer, 0, 0);
             tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            tableLayoutPanel3.Location = new System.Drawing.Point(354, 62);
-            tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tableLayoutPanel3.Location = new System.Drawing.Point(161, 71);
+            tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 1;
             tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 510F));
-            tableLayoutPanel3.Size = new System.Drawing.Size(918, 489);
+            tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 579F));
+            tableLayoutPanel3.Size = new System.Drawing.Size(920, 555);
             tableLayoutPanel3.TabIndex = 3;
             // 
             // groupBox2
@@ -125,11 +125,11 @@ namespace ONVIFWinFormClient
             groupBox2.Controls.Add(left);
             groupBox2.Controls.Add(up);
             groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            groupBox2.Location = new System.Drawing.Point(554, 3);
-            groupBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox2.Location = new System.Drawing.Point(556, 4);
+            groupBox2.Margin = new System.Windows.Forms.Padding(4);
             groupBox2.Name = "groupBox2";
-            groupBox2.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupBox2.Size = new System.Drawing.Size(360, 504);
+            groupBox2.Padding = new System.Windows.Forms.Padding(4);
+            groupBox2.Size = new System.Drawing.Size(360, 571);
             groupBox2.TabIndex = 0;
             groupBox2.TabStop = false;
             groupBox2.Text = "云台";
@@ -157,31 +157,31 @@ namespace ONVIFWinFormClient
             tableLayoutPanel4.Controls.Add(btnReset, 1, 7);
             tableLayoutPanel4.Controls.Add(button6, 1, 8);
             tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            tableLayoutPanel4.Location = new System.Drawing.Point(4, 156);
-            tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tableLayoutPanel4.Location = new System.Drawing.Point(4, 176);
+            tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(4);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
             tableLayoutPanel4.RowCount = 10;
-            tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            tableLayoutPanel4.Size = new System.Drawing.Size(352, 345);
+            tableLayoutPanel4.Size = new System.Drawing.Size(352, 391);
             tableLayoutPanel4.TabIndex = 1;
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            label6.Location = new System.Drawing.Point(4, 70);
+            label6.Location = new System.Drawing.Point(4, 80);
             label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(108, 35);
+            label6.Size = new System.Drawing.Size(108, 40);
             label6.TabIndex = 10;
             label6.Text = "zoom out";
             label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -190,10 +190,10 @@ namespace ONVIFWinFormClient
             // 
             label5.AutoSize = true;
             label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            label5.Location = new System.Drawing.Point(4, 35);
+            label5.Location = new System.Drawing.Point(4, 40);
             label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(108, 35);
+            label5.Size = new System.Drawing.Size(108, 40);
             label5.TabIndex = 7;
             label5.Text = "zoom in";
             label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -205,7 +205,7 @@ namespace ONVIFWinFormClient
             label4.Location = new System.Drawing.Point(4, 0);
             label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(108, 35);
+            label4.Size = new System.Drawing.Size(108, 40);
             label4.TabIndex = 5;
             label4.Text = "step";
             label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -214,20 +214,20 @@ namespace ONVIFWinFormClient
             // 
             step_comboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             step_comboBox.FormattingEnabled = true;
-            step_comboBox.Location = new System.Drawing.Point(120, 3);
-            step_comboBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            step_comboBox.Location = new System.Drawing.Point(120, 4);
+            step_comboBox.Margin = new System.Windows.Forms.Padding(4);
             step_comboBox.Name = "step_comboBox";
-            step_comboBox.Size = new System.Drawing.Size(228, 23);
+            step_comboBox.Size = new System.Drawing.Size(228, 25);
             step_comboBox.TabIndex = 6;
             step_comboBox.SelectedIndexChanged += step_comboBox_SelectedIndexChanged;
             // 
             // btnZoomOut
             // 
             btnZoomOut.Dock = System.Windows.Forms.DockStyle.Fill;
-            btnZoomOut.Location = new System.Drawing.Point(120, 38);
-            btnZoomOut.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnZoomOut.Location = new System.Drawing.Point(120, 44);
+            btnZoomOut.Margin = new System.Windows.Forms.Padding(4);
             btnZoomOut.Name = "btnZoomOut";
-            btnZoomOut.Size = new System.Drawing.Size(228, 29);
+            btnZoomOut.Size = new System.Drawing.Size(228, 32);
             btnZoomOut.TabIndex = 9;
             btnZoomOut.Text = "+";
             btnZoomOut.UseVisualStyleBackColor = true;
@@ -238,10 +238,10 @@ namespace ONVIFWinFormClient
             // 
             label7.AutoSize = true;
             label7.Dock = System.Windows.Forms.DockStyle.Fill;
-            label7.Location = new System.Drawing.Point(4, 105);
+            label7.Location = new System.Drawing.Point(4, 120);
             label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(108, 35);
+            label7.Size = new System.Drawing.Size(108, 40);
             label7.TabIndex = 18;
             label7.Text = "focus add";
             label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -250,10 +250,10 @@ namespace ONVIFWinFormClient
             // 
             label8.AutoSize = true;
             label8.Dock = System.Windows.Forms.DockStyle.Fill;
-            label8.Location = new System.Drawing.Point(4, 140);
+            label8.Location = new System.Drawing.Point(4, 160);
             label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(108, 35);
+            label8.Size = new System.Drawing.Size(108, 40);
             label8.TabIndex = 19;
             label8.Text = "focus dec";
             label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -262,10 +262,10 @@ namespace ONVIFWinFormClient
             // 
             label9.AutoSize = true;
             label9.Dock = System.Windows.Forms.DockStyle.Fill;
-            label9.Location = new System.Drawing.Point(4, 175);
+            label9.Location = new System.Drawing.Point(4, 200);
             label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(108, 35);
+            label9.Size = new System.Drawing.Size(108, 40);
             label9.TabIndex = 20;
             label9.Text = "aperture add";
             label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -274,10 +274,10 @@ namespace ONVIFWinFormClient
             // 
             label10.AutoSize = true;
             label10.Dock = System.Windows.Forms.DockStyle.Fill;
-            label10.Location = new System.Drawing.Point(4, 210);
+            label10.Location = new System.Drawing.Point(4, 240);
             label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label10.Name = "label10";
-            label10.Size = new System.Drawing.Size(108, 35);
+            label10.Size = new System.Drawing.Size(108, 40);
             label10.TabIndex = 21;
             label10.Text = "aperture dec";
             label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -286,10 +286,10 @@ namespace ONVIFWinFormClient
             // 
             label11.AutoSize = true;
             label11.Dock = System.Windows.Forms.DockStyle.Fill;
-            label11.Location = new System.Drawing.Point(4, 245);
+            label11.Location = new System.Drawing.Point(4, 280);
             label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label11.Name = "label11";
-            label11.Size = new System.Drawing.Size(108, 35);
+            label11.Size = new System.Drawing.Size(108, 40);
             label11.TabIndex = 22;
             label11.Text = "reset";
             label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -297,10 +297,10 @@ namespace ONVIFWinFormClient
             // btnZoomIn
             // 
             btnZoomIn.Dock = System.Windows.Forms.DockStyle.Fill;
-            btnZoomIn.Location = new System.Drawing.Point(120, 73);
-            btnZoomIn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnZoomIn.Location = new System.Drawing.Point(120, 84);
+            btnZoomIn.Margin = new System.Windows.Forms.Padding(4);
             btnZoomIn.Name = "btnZoomIn";
-            btnZoomIn.Size = new System.Drawing.Size(228, 29);
+            btnZoomIn.Size = new System.Drawing.Size(228, 32);
             btnZoomIn.TabIndex = 12;
             btnZoomIn.Text = "-";
             btnZoomIn.UseVisualStyleBackColor = true;
@@ -310,10 +310,10 @@ namespace ONVIFWinFormClient
             // focusadd_button
             // 
             focusadd_button.Dock = System.Windows.Forms.DockStyle.Fill;
-            focusadd_button.Location = new System.Drawing.Point(120, 108);
-            focusadd_button.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            focusadd_button.Location = new System.Drawing.Point(120, 124);
+            focusadd_button.Margin = new System.Windows.Forms.Padding(4);
             focusadd_button.Name = "focusadd_button";
-            focusadd_button.Size = new System.Drawing.Size(228, 29);
+            focusadd_button.Size = new System.Drawing.Size(228, 32);
             focusadd_button.TabIndex = 13;
             focusadd_button.Text = "+";
             focusadd_button.UseVisualStyleBackColor = true;
@@ -321,10 +321,10 @@ namespace ONVIFWinFormClient
             // focusdec_button
             // 
             focusdec_button.Dock = System.Windows.Forms.DockStyle.Fill;
-            focusdec_button.Location = new System.Drawing.Point(120, 143);
-            focusdec_button.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            focusdec_button.Location = new System.Drawing.Point(120, 164);
+            focusdec_button.Margin = new System.Windows.Forms.Padding(4);
             focusdec_button.Name = "focusdec_button";
-            focusdec_button.Size = new System.Drawing.Size(228, 29);
+            focusdec_button.Size = new System.Drawing.Size(228, 32);
             focusdec_button.TabIndex = 14;
             focusdec_button.Text = "-";
             focusdec_button.UseVisualStyleBackColor = true;
@@ -332,10 +332,10 @@ namespace ONVIFWinFormClient
             // apertureadd_button
             // 
             apertureadd_button.Dock = System.Windows.Forms.DockStyle.Fill;
-            apertureadd_button.Location = new System.Drawing.Point(120, 178);
-            apertureadd_button.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            apertureadd_button.Location = new System.Drawing.Point(120, 204);
+            apertureadd_button.Margin = new System.Windows.Forms.Padding(4);
             apertureadd_button.Name = "apertureadd_button";
-            apertureadd_button.Size = new System.Drawing.Size(228, 29);
+            apertureadd_button.Size = new System.Drawing.Size(228, 32);
             apertureadd_button.TabIndex = 15;
             apertureadd_button.Text = "+";
             apertureadd_button.UseVisualStyleBackColor = true;
@@ -343,10 +343,10 @@ namespace ONVIFWinFormClient
             // aperturedec_button
             // 
             aperturedec_button.Dock = System.Windows.Forms.DockStyle.Fill;
-            aperturedec_button.Location = new System.Drawing.Point(120, 213);
-            aperturedec_button.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            aperturedec_button.Location = new System.Drawing.Point(120, 244);
+            aperturedec_button.Margin = new System.Windows.Forms.Padding(4);
             aperturedec_button.Name = "aperturedec_button";
-            aperturedec_button.Size = new System.Drawing.Size(228, 29);
+            aperturedec_button.Size = new System.Drawing.Size(228, 32);
             aperturedec_button.TabIndex = 16;
             aperturedec_button.Text = "-";
             aperturedec_button.UseVisualStyleBackColor = true;
@@ -354,10 +354,10 @@ namespace ONVIFWinFormClient
             // btnReset
             // 
             btnReset.Dock = System.Windows.Forms.DockStyle.Fill;
-            btnReset.Location = new System.Drawing.Point(120, 248);
-            btnReset.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnReset.Location = new System.Drawing.Point(120, 284);
+            btnReset.Margin = new System.Windows.Forms.Padding(4);
             btnReset.Name = "btnReset";
-            btnReset.Size = new System.Drawing.Size(228, 29);
+            btnReset.Size = new System.Drawing.Size(228, 32);
             btnReset.TabIndex = 23;
             btnReset.Text = "reset";
             btnReset.UseVisualStyleBackColor = true;
@@ -366,20 +366,20 @@ namespace ONVIFWinFormClient
             // button6
             // 
             button6.Dock = System.Windows.Forms.DockStyle.Fill;
-            button6.Location = new System.Drawing.Point(120, 283);
-            button6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button6.Location = new System.Drawing.Point(120, 324);
+            button6.Margin = new System.Windows.Forms.Padding(4);
             button6.Name = "button6";
-            button6.Size = new System.Drawing.Size(228, 29);
+            button6.Size = new System.Drawing.Size(228, 32);
             button6.TabIndex = 23;
             button6.Text = "button1";
             button6.UseVisualStyleBackColor = true;
             // 
             // down
             // 
-            down.Location = new System.Drawing.Point(81, 95);
-            down.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            down.Location = new System.Drawing.Point(81, 108);
+            down.Margin = new System.Windows.Forms.Padding(4);
             down.Name = "down";
-            down.Size = new System.Drawing.Size(75, 23);
+            down.Size = new System.Drawing.Size(75, 26);
             down.TabIndex = 0;
             down.Text = "↓";
             down.UseVisualStyleBackColor = true;
@@ -388,10 +388,10 @@ namespace ONVIFWinFormClient
             // 
             // right
             // 
-            right.Location = new System.Drawing.Point(155, 57);
-            right.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            right.Location = new System.Drawing.Point(155, 64);
+            right.Margin = new System.Windows.Forms.Padding(4);
             right.Name = "right";
-            right.Size = new System.Drawing.Size(75, 23);
+            right.Size = new System.Drawing.Size(75, 26);
             right.TabIndex = 0;
             right.Text = "→";
             right.UseVisualStyleBackColor = true;
@@ -400,10 +400,10 @@ namespace ONVIFWinFormClient
             // 
             // left
             // 
-            left.Location = new System.Drawing.Point(6, 57);
-            left.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            left.Location = new System.Drawing.Point(6, 64);
+            left.Margin = new System.Windows.Forms.Padding(4);
             left.Name = "left";
-            left.Size = new System.Drawing.Size(75, 23);
+            left.Size = new System.Drawing.Size(75, 26);
             left.TabIndex = 0;
             left.Text = "←";
             left.UseVisualStyleBackColor = true;
@@ -412,10 +412,10 @@ namespace ONVIFWinFormClient
             // 
             // up
             // 
-            up.Location = new System.Drawing.Point(81, 17);
-            up.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            up.Location = new System.Drawing.Point(81, 19);
+            up.Margin = new System.Windows.Forms.Padding(4);
             up.Name = "up";
-            up.Size = new System.Drawing.Size(75, 23);
+            up.Size = new System.Drawing.Size(75, 26);
             up.TabIndex = 0;
             up.Text = "↑";
             up.UseVisualStyleBackColor = true;
@@ -425,32 +425,32 @@ namespace ONVIFWinFormClient
             // plPlayer
             // 
             plPlayer.Dock = System.Windows.Forms.DockStyle.Fill;
-            plPlayer.Location = new System.Drawing.Point(4, 3);
-            plPlayer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            plPlayer.Location = new System.Drawing.Point(4, 4);
+            plPlayer.Margin = new System.Windows.Forms.Padding(4);
             plPlayer.Name = "plPlayer";
-            plPlayer.Size = new System.Drawing.Size(542, 504);
+            plPlayer.Size = new System.Drawing.Size(544, 571);
             plPlayer.TabIndex = 1;
             // 
             // textBox
             // 
             textBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            textBox.Location = new System.Drawing.Point(1280, 3);
-            textBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            textBox.Location = new System.Drawing.Point(1089, 4);
+            textBox.Margin = new System.Windows.Forms.Padding(4);
             textBox.Multiline = true;
             textBox.Name = "textBox";
             textBox.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            textBox.Size = new System.Drawing.Size(156, 53);
+            textBox.Size = new System.Drawing.Size(134, 59);
             textBox.TabIndex = 2;
             // 
             // lbChannels
             // 
             lbChannels.Dock = System.Windows.Forms.DockStyle.Fill;
             lbChannels.FormattingEnabled = true;
-            lbChannels.ItemHeight = 15;
-            lbChannels.Location = new System.Drawing.Point(1280, 62);
-            lbChannels.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            lbChannels.ItemHeight = 17;
+            lbChannels.Location = new System.Drawing.Point(1089, 71);
+            lbChannels.Margin = new System.Windows.Forms.Padding(4);
             lbChannels.Name = "lbChannels";
-            lbChannels.Size = new System.Drawing.Size(156, 489);
+            lbChannels.Size = new System.Drawing.Size(134, 555);
             lbChannels.TabIndex = 1;
             lbChannels.SelectedIndexChanged += listBox_SelectedIndexChanged;
             // 
@@ -458,11 +458,11 @@ namespace ONVIFWinFormClient
             // 
             groupBox1.Controls.Add(tableLayoutPanel2);
             groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            groupBox1.Location = new System.Drawing.Point(354, 3);
-            groupBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox1.Location = new System.Drawing.Point(161, 4);
+            groupBox1.Margin = new System.Windows.Forms.Padding(4);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupBox1.Size = new System.Drawing.Size(918, 53);
+            groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            groupBox1.Size = new System.Drawing.Size(920, 59);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "设备登录";
@@ -485,20 +485,20 @@ namespace ONVIFWinFormClient
             tableLayoutPanel2.Controls.Add(name_textBox, 3, 0);
             tableLayoutPanel2.Controls.Add(login_button, 6, 0);
             tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            tableLayoutPanel2.Location = new System.Drawing.Point(4, 19);
-            tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tableLayoutPanel2.Location = new System.Drawing.Point(4, 20);
+            tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            tableLayoutPanel2.Size = new System.Drawing.Size(910, 31);
+            tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            tableLayoutPanel2.Size = new System.Drawing.Size(912, 35);
             tableLayoutPanel2.TabIndex = 0;
             // 
             // pwd_textBox
             // 
             pwd_textBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            pwd_textBox.Location = new System.Drawing.Point(674, 3);
-            pwd_textBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            pwd_textBox.Location = new System.Drawing.Point(674, 4);
+            pwd_textBox.Margin = new System.Windows.Forms.Padding(4);
             pwd_textBox.Name = "pwd_textBox";
             pwd_textBox.PasswordChar = '*';
             pwd_textBox.Size = new System.Drawing.Size(126, 23);
@@ -512,7 +512,7 @@ namespace ONVIFWinFormClient
             label3.Location = new System.Drawing.Point(540, 0);
             label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(126, 32);
+            label3.Size = new System.Drawing.Size(126, 38);
             label3.TabIndex = 4;
             label3.Text = "pwd";
             label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -524,7 +524,7 @@ namespace ONVIFWinFormClient
             label1.Location = new System.Drawing.Point(4, 0);
             label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(126, 32);
+            label1.Size = new System.Drawing.Size(126, 38);
             label1.TabIndex = 0;
             label1.Text = "IP";
             label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -532,8 +532,8 @@ namespace ONVIFWinFormClient
             // ip_textBox
             // 
             ip_textBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            ip_textBox.Location = new System.Drawing.Point(138, 3);
-            ip_textBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            ip_textBox.Location = new System.Drawing.Point(138, 4);
+            ip_textBox.Margin = new System.Windows.Forms.Padding(4);
             ip_textBox.Name = "ip_textBox";
             ip_textBox.Size = new System.Drawing.Size(126, 23);
             ip_textBox.TabIndex = 1;
@@ -546,7 +546,7 @@ namespace ONVIFWinFormClient
             label2.Location = new System.Drawing.Point(272, 0);
             label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(126, 32);
+            label2.Size = new System.Drawing.Size(126, 38);
             label2.TabIndex = 2;
             label2.Text = "user";
             label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -554,8 +554,8 @@ namespace ONVIFWinFormClient
             // name_textBox
             // 
             name_textBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            name_textBox.Location = new System.Drawing.Point(406, 3);
-            name_textBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            name_textBox.Location = new System.Drawing.Point(406, 4);
+            name_textBox.Margin = new System.Windows.Forms.Padding(4);
             name_textBox.Name = "name_textBox";
             name_textBox.Size = new System.Drawing.Size(126, 23);
             name_textBox.TabIndex = 3;
@@ -563,10 +563,10 @@ namespace ONVIFWinFormClient
             // 
             // login_button
             // 
-            login_button.Location = new System.Drawing.Point(808, 3);
-            login_button.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            login_button.Location = new System.Drawing.Point(808, 4);
+            login_button.Margin = new System.Windows.Forms.Padding(4);
             login_button.Name = "login_button";
-            login_button.Size = new System.Drawing.Size(95, 26);
+            login_button.Size = new System.Drawing.Size(95, 30);
             login_button.TabIndex = 6;
             login_button.Text = "login";
             login_button.UseVisualStyleBackColor = true;
@@ -575,9 +575,9 @@ namespace ONVIFWinFormClient
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.ColumnCount = 3;
-            tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 350F));
+            tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 157F));
             tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 164F));
+            tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 142F));
             tableLayoutPanel1.Controls.Add(groupBox1, 1, 0);
             tableLayoutPanel1.Controls.Add(lbChannels, 2, 1);
             tableLayoutPanel1.Controls.Add(textBox, 2, 0);
@@ -588,14 +588,14 @@ namespace ONVIFWinFormClient
             tableLayoutPanel1.Controls.Add(btnDiscover, 0, 0);
             tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 4;
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 67F));
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            tableLayoutPanel1.Size = new System.Drawing.Size(1440, 639);
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            tableLayoutPanel1.Size = new System.Drawing.Size(1224, 724);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // lvCameras
@@ -605,10 +605,11 @@ namespace ONVIFWinFormClient
             lvCameras.FullRowSelect = true;
             lvCameras.GridLines = true;
             lvCameras.HideSelection = false;
-            lvCameras.Location = new System.Drawing.Point(3, 62);
+            lvCameras.Location = new System.Drawing.Point(3, 71);
+            lvCameras.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             lvCameras.MultiSelect = false;
             lvCameras.Name = "lvCameras";
-            lvCameras.Size = new System.Drawing.Size(344, 489);
+            lvCameras.Size = new System.Drawing.Size(151, 555);
             lvCameras.TabIndex = 6;
             lvCameras.UseCompatibleStateImageBehavior = false;
             lvCameras.View = System.Windows.Forms.View.Details;
@@ -632,9 +633,10 @@ namespace ONVIFWinFormClient
             // btnDiscover
             // 
             btnDiscover.Dock = System.Windows.Forms.DockStyle.Fill;
-            btnDiscover.Location = new System.Drawing.Point(3, 3);
+            btnDiscover.Location = new System.Drawing.Point(3, 4);
+            btnDiscover.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             btnDiscover.Name = "btnDiscover";
-            btnDiscover.Size = new System.Drawing.Size(344, 53);
+            btnDiscover.Size = new System.Drawing.Size(151, 59);
             btnDiscover.TabIndex = 7;
             btnDiscover.Text = "发现";
             btnDiscover.UseVisualStyleBackColor = true;
@@ -642,11 +644,11 @@ namespace ONVIFWinFormClient
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1440, 639);
+            ClientSize = new System.Drawing.Size(1224, 724);
             Controls.Add(tableLayoutPanel1);
-            Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            Margin = new System.Windows.Forms.Padding(4);
             Name = "MainForm";
             Text = "ONVIF Client";
             FormClosed += OnClosed;

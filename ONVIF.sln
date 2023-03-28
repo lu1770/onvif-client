@@ -5,13 +5,13 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ONVIFWinFormClient", "ONVIFWinFormClient\ONVIFWinFormClient.csproj", "{12EECD9F-5177-4B87-A903-31CA97A96BFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Onvif.PTZ", "Onvif.PTZ\Onvif.PTZ.csproj", "{45CDB222-474B-4F45-B353-E93794805F95}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Onvif.PTZ", "Onvif.PTZ\Onvif.PTZ.csproj", "{45CDB222-474B-4F45-B353-E93794805F95}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Onvif.DeviceManagement", "Onvif.DeviceManagement\Onvif.DeviceManagement.csproj", "{93A203D1-F0DE-49FA-8693-17A49504A1B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Onvif.DeviceManagement", "Onvif.DeviceManagement\Onvif.DeviceManagement.csproj", "{93A203D1-F0DE-49FA-8693-17A49504A1B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Onvif.Media", "Onvif.Media\Onvif.Media.csproj", "{DFF2E055-0A50-4C76-B2D3-38019398945B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Onvif.Media", "Onvif.Media\Onvif.Media.csproj", "{DFF2E055-0A50-4C76-B2D3-38019398945B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Onvif", "Onvif\Onvif.csproj", "{6271AA7D-9F92-4DF5-A071-32B4D5FA4F19}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Onvif", "Onvif\Onvif.csproj", "{6271AA7D-9F92-4DF5-A071-32B4D5FA4F19}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

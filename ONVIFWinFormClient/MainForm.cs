@@ -72,6 +72,7 @@ namespace ONVIFWinFormClient
                 VlcLibDirectory = vlcLibDirectory,
                 // VlcMediaPlayer = new VlcMediaPlayer(vlcLibDirectory)
             };
+            vlc.VlcLibDirectory = new DirectoryInfo(@".\libvlc\win-x86");
             vlc.DoubleClick += vlcControl1_DoubleClick;
             vlc.Click += vlcControl2_Click;
             vlc.Log += OnVlcOnLog;
@@ -409,9 +410,21 @@ namespace ONVIFWinFormClient
 
         private void up_MouseDown(object sender, MouseEventArgs e)
         {
-            Catch(Agent.Ptz.MoveUp);
+            ExecuteAction(Agent.Ptz.MoveUp);
         }
-
+        public void ExecuteAction(Action action)
+        {
+            Task.Run(() =>
+            {
+                Catch(() => Timer(action));
+            });
+        }
+        public void Timer(Action action)
+        {
+            var startDate = DateTime.Now;
+            action();
+            Debug.WriteLine($"Spent: {(DateTime.Now - startDate).Seconds} seconds");
+        }
         public void Catch(Action action)
         {
             try
@@ -426,32 +439,32 @@ namespace ONVIFWinFormClient
 
         private void StopAsync(object sender, MouseEventArgs e)
         {
-            Catch(Agent.Ptz.Stop);
+            ExecuteAction(Agent.Ptz.Stop);
         }
 
         private void left_MouseDown(object sender, MouseEventArgs e)
         {
-            Catch(Agent.Ptz.MoveLeft);
+            ExecuteAction(Agent.Ptz.MoveLeft);
         }
 
         private void right_MouseDown(object sender, MouseEventArgs e)
         {
-            Catch(Agent.Ptz.MoveRight);
+            ExecuteAction(Agent.Ptz.MoveRight);
         }
 
         private void down_MouseDown(object sender, MouseEventArgs e)
         {
-            Catch(Agent.Ptz.MoveDown);
+            ExecuteAction(Agent.Ptz.MoveDown);
         }
 
         private void btnZoomIn_MouseDown(object sender, MouseEventArgs e)
         {
-            Catch(Agent.Ptz.ZoomIn);
+            ExecuteAction(Agent.Ptz.ZoomIn);
         }
 
         private void btnZoomOut_MouseDown(object sender, MouseEventArgs e)
         {
-            Catch(Agent.Ptz.ZoomOut);
+            ExecuteAction(Agent.Ptz.ZoomOut);
         }
 
         private async Task LoadProfile()
@@ -489,7 +502,7 @@ namespace ONVIFWinFormClient
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            Catch(Agent.Ptz.GotoHomePosition);
+            ExecuteAction(Agent.Ptz.GotoHomePosition);
         }
     }
 }
